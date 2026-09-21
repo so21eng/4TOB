@@ -147,7 +147,8 @@ const NOMBRES = [
   "MAFALDA","LIZBETH MARLENY","YUDY YOVANA","YEPSI YASMIN","YUDIT CARELY","LUZ ANAI",
   "BLANCA LUZ","ESPERANZA","NELY MARGOT","CLENY MAYDALUZ","ERIKA","MARLENY","VILMA",
   "SHIOMARA NATALY","LAYDI ROSMERY","KELY JHOMIRA","LUZ BELINDA","YULY","ANGELA ANNY",
-  "LICELY AVRIL","MELANY EMILDHA"
+  "LICELY AVRIL","MELANY EMILDHA",
+  "ANY MARISOL","FLOR TRINIDAD"
 ];
 const MENSAJES = [
   "Eres luz en el camino de quienes te rodean. Que este día te devuelva todo el cariño que regalas.",
@@ -163,6 +164,11 @@ const MENSAJES = [
   "Tu presencia es un regalo. Hoy florece todo el respeto y admiración que te tenemos.",
   "Gracias por sembrar amistad, alegría y esperanza dondequiera que vas."
 ];
+/* mensajes propios de las flores nuevas (índice = posición en NOMBRES) */
+const MENSAJES_EXTRA = {
+  28: "Any Marisol, tu dulzura y tu entusiasmo hacen brillar cada rincón de este salón. ¡Que hoy florezcan todos tus sueños!",
+  29: "Flor Trinidad, llevas la flor en el nombre y la luz en el corazón. ¡Gracias por alegrar nuestros días, feliz día!"
+};
 const N = NOMBRES.length, SOL = N;
 const titulo = n => n.toLowerCase().replace(/(^|\s)\S/g, m => m.toUpperCase());
 
@@ -232,7 +238,7 @@ const BRILLOS = [
 ];
 
 /* ==================== ESCENA ==================== */
-const RINGS = [{R: 230, n: 5}, {R: 350, n: 7}, {R: 470, n: 8}, {R: 590, n: 8}];
+const RINGS = [{R: 230, n: 5}, {R: 350, n: 7}, {R: 470, n: 8}, {R: 590, n: 10}];
 let TILT = .5;
 const items = [];
 let idx = 0;
@@ -647,7 +653,7 @@ function enfocar(i){
       escribir("Gracias por ser el sol de este universo: cada una de ustedes le da un brillo unico al 4to semestre _B_ y hace que nuestra etapa universitaria sea inolvidable.");
     } else {
       elPara.textContent = "Para " + titulo(NOMBRES[i]) + " 🌼";
-      escribir(MENSAJES[i % MENSAJES.length]);
+      escribir(MENSAJES_EXTRA[i] || MENSAJES[i % MENSAJES.length]);
     }
     caja.classList.remove("cambia");
   }, 280);
